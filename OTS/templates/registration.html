@@ -1,0 +1,24 @@
+{%extends 'main.html'%}
+{%block title%}OTS-Registration Status{%endblock title%}
+{%block top%}
+<a href="{%url 'OTS:registrationform'%}">New candidate?</a>
+<a href="{%url 'OTS:login'%}">Login</a>
+{%endblock top%}
+{%block content%}
+{%if userStatus == 1% }
+   <idv class="userStatus">
+       Sorry. username already exits, please try different username.
+       <a href="{%url 'OTS:registrationform'%}" > Back to candidate Registration</a>
+   </idv>
+{ %elif userStatus == 2%}
+    <div class="userStatus">
+        Congratulation!! , user created successfully
+        <a href="{%url 'OTS:login'%}">Login</a>
+    </div>
+{ %elif userStatus == 3%}
+    <div class="userStatus">
+       Oops!!, Improper Request
+        <a href="{%url 'OTS:registrationform'%}"> Back to candidate Registration</a>
+    </div>
+{  %endif%}
+{%endblock content%}

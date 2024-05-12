@@ -1,0 +1,46 @@
+{%extends 'main.html'%}
+{%block title%}OTS-Candidate Result history{%endblock%}
+{%block top%}
+<a href="{%url 'OTS:home'%}">Home</a>
+<a href="{%url 'OTS:logout'%}">Logout</a>
+{%endblock%}
+{%block content%}
+<h1>
+    Your Report Card
+</h1>
+<p1> Hi {{candidate.name}}, you have attempted {{candidate.test_attempted}} tests and you have scored {{candidate.points}}</p1>
+<table>
+    <tr>
+        <th>
+            Date
+        </th>
+      
+        <th>
+            Attempt
+        </th>
+        <th>
+            Right
+        </th>
+        <th>
+            Wrong
+        </th>
+        <th>
+            Points
+        </th>
+        
+
+    </tr>
+    {%for r in results%}
+    <tr>
+        <td>{{r.date}} </td>
+    
+        <td>{{r.attempt}}</td>
+        <td>{{r.right}}</td>
+        <td>{{r.wrong}}</td>
+        <td>{{r.points}}</td>
+    </tr>
+    {%endfor%}
+    
+</table>
+
+{%endblock%}
